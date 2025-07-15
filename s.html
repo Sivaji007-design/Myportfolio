@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HealthTrack Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    :root {
+      --bg: #f5fcfc;
+      --card: #e6f7f7;
+      --primary: #007b7f;
+      --secondary: #00b894;
+      --accent: #5dade2;
+      --text: #333;
+      --shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      grid-template-rows: auto 1fr;
+      height: 100vh;
+    }
+
+    aside {
+      grid-row: 1 / 3;
+      background: var(--primary);
+      padding: 20px;
+      color: #fff;
+    }
+
+    aside h2 {
+      margin-bottom: 30px;
+    }
+
+    aside nav a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      margin: 15px 0;
+      font-size: 1rem;
+    }
+
+    header {
+      background: #fff;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    header img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    main {
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .card i {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    table {
+      width: 100%;
+      background: #fff;
+      border-collapse: collapse;
+      box-shadow: var(--shadow);
+      margin-bottom: 30px;
+    }
+
+    table th, table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+    }
+
+    h3 {
+      margin: 20px 0 10px;
+    }
+
+    .prescriptions, .profile {
+      background: #fff;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+    }
+
+    .prescriptions ul {
+      list-style: none;
+    }
+
+    .prescriptions li {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr;
+      }
+
+      aside {
+        grid-row: 1;
+        grid-column: 1;
+        display: flex;
+        justify-content: space-around;
+      }
+
+      header {
+        grid-row: 2;
+        grid-column: 1;
+      }
+
+      main {
+        grid-row: 3;
+        grid-column: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <aside>
+    <h2>HealthTrack</h2>
+    <nav>
+      <a href="#"><i class="fas fa-chart-line"></i> Overview</a>
+      <a href="#"><i class="fas fa-calendar-check"></i> Appointments</a>
+      <a href="#"><i class="fas fa-pills"></i> Prescriptions</a>
+      <a href="#"><i class="fas fa-file-medical"></i> Reports</a>
+      <a href="#"><i class="fas fa-cog"></i> Settings</a>
+    </nav>
+  </aside>
+
+  <header>
+    <img src="https://via.placeholder.com/40" alt="Patient Photo">
+    <span>John Doe</span>
+    <i class="fas fa-bell" style="margin-left: 15px; color: var(--primary);"></i>
+  </header>
+
+  <main>
+    <div class="card-container">
+      <div class="card">
+        <i class="fas fa-heartbeat"></i>
+        <h4>Heart Rate</h4>
+        <p>72 bpm</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-tint"></i>
+        <h4>Blood Pressure</h4>
+        <p>120/80</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-lungs"></i>
+        <h4>Oxygen</h4>
+        <p>98%</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-weight"></i>
+        <h4>BMI</h4>
+        <p>23.5</p>
+      </div>
+    </div>
+
+    <h3>Appointments</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Doctor</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>15 Jul 2025</td>
+          <td>10:00 AM</td>
+          <td>Dr. Smith</td>
+          <td>Upcoming</td>
+        </tr>
+        <tr>
+          <td>10 Jul 2025</td>
+          <td>2:00 PM</td>
+          <td>Dr. Lee</td>
+          <td>Completed</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="prescriptions">
+      <h3>Prescriptions</h3>
+      <ul>
+        <li><strong>Paracetamol</strong> – 500mg – 3x/day – Dr. Smith – 5 days</li>
+        <li><strong>Vitamin D</strong> – 1000 IU – 1x/day – Dr. Lee – 30 days</li>
+      </ul>
+    </div>
+
+    <div class="profile">
+      <h3>Patient Profile</h3>
+      <p><strong>Name:</strong> John Doe</p>
+      <p><strong>Age:</strong> 30</p>
+      <p><strong>Gender:</strong> Male</p>
+      <p><strong>Email:</strong> john.doe@example.com</p>
+      <p><strong>Phone:</strong> +91-9876543210</p>
+      <p><strong>Doctor Assigned:</strong> Dr. Smith</p>
+    </div>
+  </main>
+
+</body>
+</html>
